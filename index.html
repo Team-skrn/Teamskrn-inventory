@@ -759,8 +759,7 @@
     
 
     <script>
-        // ✅ TEMPORARILY DISABLED Service Worker for debugging
-        /*
+        // ✅ Register Service Worker
         if ('serviceWorker' in navigator) {
             navigator.serviceWorker.register('/Teamskrn-inventory/service-worker.js')
                 .then((reg) => {
@@ -774,17 +773,6 @@
                         };
                     };
                 }).catch((err) => console.error("Service Worker Registration Failed", err));
-        }
-        */
-        
-        // Unregister any existing service workers
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.getRegistrations().then(function(registrations) {
-                for(let registration of registrations) {
-                    registration.unregister();
-                    console.log('Service Worker unregistered');
-                }
-            });
         }
 
         // ✅ Show update notification
@@ -831,7 +819,7 @@
     <!-- Notification Container -->
     <div id="notificationContainer" class="notification-container"></div>
 
-    <script src="main-app.js"></script>
+    <script src="script-supabase-simple.js"></script>
     <script>
     // Patch: Make the visible Wishlist button open the modal using the same logic as the hidden one
     document.addEventListener('DOMContentLoaded', function() {
